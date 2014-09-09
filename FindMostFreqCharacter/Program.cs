@@ -60,8 +60,7 @@ namespace FindMostFreqCharacter
 
                 if (chars.Count() == 1)
                 {
-                    foreach (var character in chars)
-                        Console.WriteLine("The character '{0}' appears the most frequently in this string.", (char)character.Key);
+                    Console.WriteLine("The character '{0}' appears the most frequently in this string.", (char)chars.First().Key);
                 }
                 else if (chars.Count() > 1)
                 {
