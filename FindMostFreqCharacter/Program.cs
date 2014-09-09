@@ -13,7 +13,7 @@ namespace FindMostFreqCharacter
             Console.WriteLine("Type a string, any string, and hit Enter!");
             FindMostFreqCharacter(Console.ReadLine());
 
-            while (1 == 1)
+            while (true)
             {
                 Console.WriteLine();
                 Console.WriteLine("Would you like to play again?");
@@ -35,10 +35,9 @@ namespace FindMostFreqCharacter
                 return;
             }
 
-            var stopWatch = new Stopwatch();
-            stopWatch.Start();
-
+            var stopWatch = Stopwatch.StartNew();
             var listCharacters = new List<KeyValuePair<char, int>>(); // Key = character, Value = frequency count
+
             foreach (char c in str)
             {
                 var ch = listCharacters.FirstOrDefault(x => x.Key == c);
@@ -60,7 +59,7 @@ namespace FindMostFreqCharacter
 
                 if (chars.Count() == 1)
                 {
-                    Console.WriteLine("The character '{0}' appears the most frequently in this string.", (char)chars.First().Key);
+                    Console.WriteLine("The character '{0}' appears the most frequently in this string.", chars.First().Key);
                 }
                 else if (chars.Count() > 1)
                 {
@@ -70,7 +69,8 @@ namespace FindMostFreqCharacter
             }
 
             stopWatch.Stop();
-            Console.WriteLine("<<This operation took {0} ticks to execute>>", stopWatch.ElapsedTicks);
+
+            Console.WriteLine("<<This operation took {0} milliseconds to execute>>", stopWatch.Elapsed.TotalMilliseconds);
         }
     }
 }
